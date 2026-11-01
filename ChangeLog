@@ -1,3 +1,11 @@
+Unreleased - se7enxweb/expcomponents-graph
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Renamed: The package is se7enxweb/expcomponents-graph, Exponential's
+  maintained fork of Zeta Components Graph. It replaces zetacomponents/graph,
+  so packages that require zetacomponents/graph keep working. Class names
+  (ezc*) are unchanged.
+
 1.7.2 - Friday 04 October 2024
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

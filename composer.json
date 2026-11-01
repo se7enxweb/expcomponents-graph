@@ -46,12 +46,15 @@
         ]
     },
     "description": "A component for creating pie charts, line graphs and other kinds of diagrams.",
-    "homepage": "https://github.com/zetacomponents",
+    "homepage": "https://github.com/se7enxweb/expcomponents-graph",
     "license": "Apache-2.0",
-    "name": "zetacomponents/graph",
+    "name": "se7enxweb/expcomponents-graph",
     "type": "library",
     "require": {
         "zetacomponents/base": "~1.8"
+    },
+    "replace": {
+        "zetacomponents/graph": "self.version"
     },
     "require-dev": {
         "zetacomponents/unit-test": "^1.2",

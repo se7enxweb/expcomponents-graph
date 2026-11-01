@@ -2,6 +2,9 @@
 Zeta Components Graph component
 ===============================
 
+This is se7enxweb/expcomponents-graph, Exponential's maintained fork of
+Zeta Components Graph. It replaces the Composer package zetacomponents/graph.
+
 .. image:: https://travis-ci.org/zetacomponents/Graph.png?branch=master
    :target: https://travis-ci.org/zetacomponents/Graph
 
