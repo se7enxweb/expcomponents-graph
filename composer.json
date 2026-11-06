@@ -51,7 +51,8 @@
     "name": "se7enxweb/expcomponents-graph",
     "type": "library",
     "require": {
-        "zetacomponents/base": "~1.8"
+        "php": ">=7.1",
+        "se7enxweb/expcomponents-base": "~1.8"
     },
     "replace": {
         "zetacomponents/graph": "self.version"

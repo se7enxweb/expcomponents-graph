@@ -5,6 +5,14 @@ Unreleased - se7enxweb/expcomponents-graph
   maintained fork of Zeta Components Graph. It replaces zetacomponents/graph,
   so packages that require zetacomponents/graph keep working. Class names
   (ezc*) are unchanged.
+- Updated: Requirements on other Zeta Components point to their Exponential
+  forks (se7enxweb/expcomponents-base), which replace the upstream packages.
+- Updated: composer.json states the license (Apache-2.0) and the PHP
+  versions; the component is tested on PHP 7.4 to 8.5.
+- Added: NOTICE keeps the upstream copyright notices and names the fork;
+  README.md describes the fork.
+- Added: A GitHub Actions workflow running the test suite on PHP 7.4 to 8.5.
+
 
 1.7.2 - Friday 04 October 2024
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
