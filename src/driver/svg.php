@@ -1253,7 +1253,7 @@ class ezcGraphSvgDriver extends ezcGraphDriver
 
         if ( ! $this->options->inline )
         {
-            header('Content-Type: ' . $this->getMimeType());
+            header( 'Content-Type: ' . $this->getMimeType() );
         }
         echo $this->dom->saveXML();
     }
