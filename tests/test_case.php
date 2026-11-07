@@ -24,11 +24,58 @@
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  */
 
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
+
 abstract class ezcGraphTestCase extends ezcTestImageCase
 {
+    use ezcGraphTestInvocationAtIndex;
+
+    /**
+     * LC_NUMERIC before setUp(), restored by tearDown().
+     *
+     * @var string|false
+     */
+    private $previousNumericLocale = false;
+
     public function setUp() : void
     {
-        $this->setLocale( LC_NUMERIC, 'en_US', 'en_US.UTF-8', 'en_US.UTF8', 'en', 'english', 'en_US@euro' );
+        $this->setNumericLocale( 'en_US', 'en_US.UTF-8', 'en_US.UTF8', 'en', 'english', 'en_US@euro' );
+    }
+
+    /**
+     * Sets LC_NUMERIC to the first of $locales that exists, until tearDown().
+     *
+     * Replaces PHPUnit's setLocale( LC_NUMERIC, ... ): PHPUnit 9 reads the
+     * current locale with setlocale( $category, 0 ), and PHP 8.5 refuses the
+     * int (TypeError). Throws the same exception as PHPUnit when no locale
+     * of the list exists.
+     *
+     * @param string ...$locales
+     */
+    protected function setNumericLocale( ...$locales )
+    {
+        if ( $this->previousNumericLocale === false )
+        {
+            $this->previousNumericLocale = setlocale( LC_NUMERIC, '0' );
+        }
+        if ( setlocale( LC_NUMERIC, ...$locales ) === false )
+        {
+            throw new PHPUnit\Framework\Exception(
+                'The locale functionality is not implemented on your platform, ' .
+                'the specified locale does not exist or the category name is ' .
+                'invalid.'
+            );
+        }
+    }
+
+    public function tearDown() : void
+    {
+        if ( $this->previousNumericLocale !== false )
+        {
+            setlocale( LC_NUMERIC, $this->previousNumericLocale );
+            $this->previousNumericLocale = false;
+        }
+        parent::tearDown();
     }
 
     /**

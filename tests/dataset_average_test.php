@@ -129,7 +129,9 @@ class ezcGraphDataSetAverageTest extends ezcGraphTestCase
             $this->markTestSkipped( "This test is only for PHP prior 5.2.1. See PHP bug #40482." );
         }
 
-        date_default_timezone_set( 'MET' );
+        // Was 'MET', which PHP built with the system tzdata (Debian, Ubuntu) refuses;
+        // Europe/Berlin has the same offsets (CET/CEST) for these dates.
+        date_default_timezone_set( 'Europe/Berlin' );
         $arrayDataSet = new ezcGraphArrayDataSet( array(
             strtotime( 'Jun 2006' ) => 1300000,
             strtotime( 'May 2006' ) => 1200000,
@@ -156,7 +158,9 @@ class ezcGraphDataSetAverageTest extends ezcGraphTestCase
             $this->markTestSkipped( "This test is only for PHP after 5.2.1. See PHP bug #40482." );
         }
 
-        date_default_timezone_set( 'MET' );
+        // Was 'MET', which PHP built with the system tzdata (Debian, Ubuntu) refuses;
+        // Europe/Berlin has the same offsets (CET/CEST) for these dates.
+        date_default_timezone_set( 'Europe/Berlin' );
         $arrayDataSet = new ezcGraphArrayDataSet( array(
             strtotime( 'Jun 2006' ) => 1300000,
             strtotime( 'May 2006' ) => 1200000,
@@ -390,7 +394,9 @@ class ezcGraphDataSetAverageTest extends ezcGraphTestCase
         $filename = $this->tempDir . __FUNCTION__ . '.svg';
 
         $chart = new ezcGraphLineChart();
-        date_default_timezone_set( 'MET' );
+        // Was 'MET', which PHP built with the system tzdata (Debian, Ubuntu) refuses;
+        // Europe/Berlin has the same offsets (CET/CEST) for these dates.
+        date_default_timezone_set( 'Europe/Berlin' );
         $chart->data['Statistical data'] = new ezcGraphArrayDataSet( array(
             'Jun 2006' => 1300000,
             'May 2006' => 1200000,

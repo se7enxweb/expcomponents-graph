@@ -74,6 +74,7 @@ class ezcGraphSvgSvgFontDriverTest extends ezcGraphTestCase
         {
             $this->removeTempDir();
         }
+        parent::tearDown();
     }
 
     public function testDrawTextBoxShortString()
@@ -1230,7 +1231,7 @@ class ezcGraphSvgSvgFontDriverTest extends ezcGraphTestCase
     public function testSvgWithDifferentLocales()
     {
         try {
-            $this->setLocale( LC_NUMERIC, 'de_DE', 'de_DE.UTF-8', 'de_DE.UTF8', 'deu_deu', 'de', 'ge', 'deutsch', 'de_DE@euro' );
+            $this->setNumericLocale( 'de_DE', 'de_DE.UTF-8', 'de_DE.UTF8', 'deu_deu', 'de', 'ge', 'deutsch', 'de_DE@euro' );
         } catch (PHPUnit\Framework\Exception $e) {
             $this->markTestSkipped($e->getMessage());
         }
