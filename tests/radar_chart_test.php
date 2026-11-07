@@ -26,6 +26,7 @@
  */
 
 require_once dirname( __FILE__ ) . '/test_case.php';
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
 
 /**
  * Tests for ezcGraph class.
@@ -74,25 +75,19 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
             'drawAxis',
         ) );
 
-        $mockedRenderer
-           ->expects( $this->at( 0 ) )
-            ->method( 'drawAxis' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawAxis' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 200., 0. ), 1. )
             );
-        $mockedRenderer
-           ->expects( $this->at( 1 ) )
-            ->method( 'drawAxis' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawAxis' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 400., 100. ), 1. )
             );
-        $mockedRenderer
-           ->expects( $this->at( 3 ) )
-            ->method( 'drawAxis' )
+        $this->expectsCallAt( $mockedRenderer, 3, 'drawAxis' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
@@ -114,9 +109,7 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
             'drawRadarDataLine',
         ) );
 
-        $mockedRenderer
-           ->expects( $this->at( 0 ) )
-            ->method( 'drawRadarDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawRadarDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
@@ -125,9 +118,7 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
                 $this->equalTo( new ezcGraphCoordinate( .0, .585 ), .05 ),
                 $this->equalTo( new ezcGraphCoordinate( .0, .585 ), .05 )
             );
-        $mockedRenderer
-           ->expects( $this->at( 1 ) )
-            ->method( 'drawRadarDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawRadarDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 2' ) ),
@@ -136,9 +127,7 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
                 $this->equalTo( new ezcGraphCoordinate( .0, .585 ), .05 ),
                 $this->equalTo( new ezcGraphCoordinate( .25, .0525 ), .05 )
             );
-        $mockedRenderer
-           ->expects( $this->at( 4 ) )
-            ->method( 'drawRadarDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawRadarDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
@@ -164,9 +153,7 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
             'drawRadarDataLine',
         ) );
 
-        $mockedRenderer
-           ->expects( $this->at( 0 ) )
-            ->method( 'drawRadarDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawRadarDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
@@ -179,9 +166,7 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraph::DIAMOND ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) )
             );
-        $mockedRenderer
-           ->expects( $this->at( 1 ) )
-            ->method( 'drawRadarDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawRadarDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 2' ) ),
@@ -194,9 +179,7 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraph::DIAMOND ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) )
             );
-        $mockedRenderer
-           ->expects( $this->at( 4 ) )
-            ->method( 'drawRadarDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawRadarDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
@@ -227,17 +210,13 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
             'drawGridLine',
         ) );
 
-        $mockedRenderer
-           ->expects( $this->at( 0 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphCoordinate( 338., 93.8 ), .1 ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 300., 80. ), .1 ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
-        $mockedRenderer
-           ->expects( $this->at( 1 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawGridLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphCoordinate( 343.75, 92.9 ), .1 ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 300., 77. ), .1 ),
@@ -245,9 +224,7 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
             );
 
         // Next axis
-        $mockedRenderer
-           ->expects( $this->at( 21 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 21, 'drawGridLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphCoordinate( 323.5, 116.2 ), .1 ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 338., 93.8 ), .1 ),

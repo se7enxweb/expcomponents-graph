@@ -26,6 +26,7 @@
  */
 
 require_once dirname( __FILE__ ) . '/test_case.php';
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
 
 /**
  * Tests for ezcGraph class.
@@ -93,18 +94,14 @@ class ezcGraphRenderer2dLegacyTest extends ezcGraphTestCase
     {
         $chart = new ezcGraphLineChart();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 120., 220. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 120., 20. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 120., 20. ),
@@ -127,18 +124,14 @@ class ezcGraphRenderer2dLegacyTest extends ezcGraphTestCase
     {
         $chart = new ezcGraphLineChart();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 120., 20. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 120., 220. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 120., 220. ),
@@ -161,18 +154,14 @@ class ezcGraphRenderer2dLegacyTest extends ezcGraphTestCase
     {
         $chart = new ezcGraphLineChart();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 150., 120. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 450., 120. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 450., 120. ),
@@ -195,18 +184,14 @@ class ezcGraphRenderer2dLegacyTest extends ezcGraphTestCase
     {
         $chart = new ezcGraphLineChart();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 450., 120. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 150., 120. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 150., 120. ),

@@ -26,6 +26,7 @@
  */
 
 require_once dirname( __FILE__ ) . '/test_case.php';
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
 
 /**
  * Tests for ezcGraph class.
@@ -97,27 +98,21 @@ class ezcGraphAxisRotatedRendererTest extends ezcGraphTestCase
             'drawText',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 146.3, 180., 160., 208.3 ), 1. ),
                 $this->equalTo( 'sample 1' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::RIGHT ),
                 $this->equalTo( new ezcGraphRotation( -45, new ezcGraphCoordinate( 160, 180 ) ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawText' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 221.3, 180., 235., 236.6 ), 1. ),
                 $this->equalTo( 'sample 2' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::RIGHT ),
                 $this->equalTo( new ezcGraphRotation( -45, new ezcGraphCoordinate( 235, 180 ) ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawText' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 446.3, 180., 460., 208.3 ), 1. ),
                 $this->equalTo( 'sample 5' ),
@@ -144,27 +139,21 @@ class ezcGraphAxisRotatedRendererTest extends ezcGraphTestCase
             'drawText',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 109.4, 180., 140., 208.3 ), 1. ),
                 $this->equalTo( 'sample 1' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::RIGHT ),
                 $this->equalTo( new ezcGraphRotation( -45, new ezcGraphCoordinate( 140, 180 ) ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawText' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 197.6, 180., 220., 236.6 ), 1. ),
                 $this->equalTo( 'sample 2' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::RIGHT ),
                 $this->equalTo( new ezcGraphRotation( -45, new ezcGraphCoordinate( 220, 180 ) ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawText' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 429.4, 180., 460., 208.3 ), 1. ),
                 $this->equalTo( 'sample 5' ),
@@ -190,27 +179,21 @@ class ezcGraphAxisRotatedRendererTest extends ezcGraphTestCase
             'drawText',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 146.3, 180., 160., 208.3 ), 1. ),
                 $this->equalTo( 'sample 1' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::RIGHT ),
                 $this->equalTo( new ezcGraphRotation( -45, new ezcGraphCoordinate( 160, 180 ) ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawText' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 221.3, 180., 235., 236.6 ), 1. ),
                 $this->equalTo( 'sample 2' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::RIGHT ),
                 $this->equalTo( new ezcGraphRotation( -45, new ezcGraphCoordinate( 235, 180 ) ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawText' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 446.3, 180., 460., 208.3 ), 1. ),
                 $this->equalTo( 'sample 5' ),

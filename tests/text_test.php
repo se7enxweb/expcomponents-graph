@@ -25,6 +25,8 @@
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  */
 
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
+
 /**
  * Tests for ezcGraph class.
  *
@@ -33,6 +35,8 @@
  */
 class ezcGraphTextTest extends ezcTestCase
 {
+    use ezcGraphTestInvocationAtIndex;
+
 	public static function suite()
 	{
 		return new \PHPUnit\Framework\TestSuite( "ezcGraphTextTest" );
@@ -60,9 +64,7 @@ class ezcGraphTextTest extends ezcTestCase
         ) );
 
         // Y-Axis
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 1, 1, 499, 19 ) ),
                 $this->equalTo( 'Title of a chart' ),
@@ -87,9 +89,7 @@ class ezcGraphTextTest extends ezcTestCase
         ) );
 
         // Y-Axis
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 1, 181, 499, 199 ) ),
                 $this->equalTo( 'Title of a chart' ),
@@ -115,9 +115,7 @@ class ezcGraphTextTest extends ezcTestCase
         ) );
 
         // Y-Axis
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 6, 6, 494, 14 ) ),
                 $this->equalTo( 'Title of a chart' ),
@@ -142,9 +140,7 @@ class ezcGraphTextTest extends ezcTestCase
         ) );
 
         // Y-Axis
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 6, 6, 494, 14 ) ),
                 $this->equalTo( 'Subtitle of a chart' ),
@@ -169,17 +165,13 @@ class ezcGraphTextTest extends ezcTestCase
         ) );
 
         // Y-Axis
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 1, 1, 499, 19 ) ),
                 $this->equalTo( 'Title of a chart' ),
                 $this->equalTo( ezcGraph::CENTER | ezcGraph::MIDDLE )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 1, 21, 499, 37 ) ),
                 $this->equalTo( 'Subtitle of a chart' ),
@@ -205,17 +197,13 @@ class ezcGraphTextTest extends ezcTestCase
         ) );
 
         // Y-Axis
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 1, 1, 499, 19 ) ),
                 $this->equalTo( 'Title of a chart' ),
                 $this->equalTo( ezcGraph::CENTER | ezcGraph::MIDDLE )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 1, 183, 499, 199 ) ),
                 $this->equalTo( 'Subtitle of a chart' ),

@@ -26,6 +26,7 @@
  */
 
 require_once dirname( __FILE__ ) . '/test_case.php';
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
 
 /**
  * Tests for ezcGraph class.
@@ -259,9 +260,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
             'drawPieSegment',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'Mozilla' ) ),
@@ -271,9 +270,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
                 $this->equalTo( 'Mozilla: 4375 (61.3%)' ),
                 $this->equalTo( false )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'IE' ) ),
@@ -283,9 +280,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
                 $this->equalTo( 'IE: 345 (4.8%)' ),
                 $this->equalTo( false )
             );
-        $mockedRenderer
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 2, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'Opera' ) ),
@@ -295,9 +290,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
                 $this->equalTo( 'Opera: 1204 (16.9%)' ),
                 $this->equalTo( false )
             );
-        $mockedRenderer
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 3, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'wget' ) ),
@@ -307,9 +300,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
                 $this->equalTo( 'wget: 231 (3.2%)' ),
                 $this->equalTo( true )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'Safari' ) ),
@@ -346,9 +337,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
             'drawPieSegment',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'Mozilla' ) ),
@@ -358,9 +347,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
                 $this->equalTo( 'Callback: Mozilla' ),
                 $this->equalTo( false )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'IE' ) ),
@@ -370,9 +357,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
                 $this->equalTo( 'Callback: IE' ),
                 $this->equalTo( false )
             );
-        $mockedRenderer
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 2, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'Opera' ) ),
@@ -382,9 +367,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
                 $this->equalTo( 'Callback: Opera' ),
                 $this->equalTo( false )
             );
-        $mockedRenderer
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 3, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'wget' ) ),
@@ -394,9 +377,7 @@ class ezcGraphPieChartTest extends ezcGraphTestCase
                 $this->equalTo( 'Callback: wget' ),
                 $this->equalTo( true )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawPieSegment' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawPieSegment' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 80, 0, 400, 200 ) ),
                 $this->equalTo( new ezcGraphContext( 'sample', 'Safari' ) ),

@@ -25,6 +25,8 @@
  * @license http://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  */
 
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
+
 /**
  * Tests for ezcGraph class.
  *
@@ -33,6 +35,8 @@
  */
 class ezcGraphAxisBoxedRendererTest extends ezcTestCase
 {
+    use ezcGraphTestInvocationAtIndex;
+
     protected $renderer;
 
     protected $driver;
@@ -64,17 +68,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawGridLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 204., 20. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 204., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 460., 20. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 460., 180. ), 1. ),
@@ -99,17 +99,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawGridLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 180., 20. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 180., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 500., 20. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 500., 180. ), 1. ),
@@ -134,17 +130,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawGridLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 204., 0. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 204., 200. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 460., 0. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 460., 200. ), 1. ),
@@ -168,17 +160,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawStepLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawStepLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawStepLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 204., 177. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 204., 183. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#EEEEEC' ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawStepLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawStepLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 460., 177. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 460., 183. ), 1. ),
@@ -203,17 +191,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawStepLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawStepLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawStepLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 204., 177. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 204., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#EEEEEC' ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawStepLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawStepLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 460., 177. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 460., 180. ), 1. ),
@@ -239,17 +223,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawStepLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawStepLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawStepLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 204., 180. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 204., 183. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#EEEEEC' ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawStepLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawStepLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 460., 183. ), 1. ),
@@ -297,17 +277,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawText',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 142., 182., 202., 198. ), 1. ),
                 $this->equalTo( 'sample 1' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::CENTER )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 398., 182., 458., 198. ), 1. ),
                 $this->equalTo( 'sample 5' ),
@@ -332,17 +308,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawGridLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 396., 20. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 396., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 140., 20. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 140., 180. ), 1. ),
@@ -367,9 +339,7 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawGridLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 140., 52. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 460., 52. ), 1. ),
@@ -394,9 +364,7 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawGridLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawGridLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 140., 148. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 460., 148. ), 1. ),
@@ -421,17 +389,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawText',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 398., 182., 458., 198. ), 1. ),
                 $this->equalTo( 'sample 1' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::CENTER )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 142., 182., 202., 198. ), 1. ),
                 $this->equalTo( 'sample 5' ),
@@ -456,17 +420,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawText',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 102., 22., 138., 50. ), 1. ),
                 $this->equalTo( '0' ),
                 $this->equalTo( ezcGraph::MIDDLE | ezcGraph::RIGHT )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 102., 150., 138., 178. ), 1. ),
                 $this->equalTo( '400' ),
@@ -491,17 +451,13 @@ class ezcGraphAxisBoxedRendererTest extends ezcTestCase
             'drawText',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 102., 150., 138., 178. ), 1. ),
                 $this->equalTo( '0' ),
                 $this->equalTo( ezcGraph::MIDDLE | ezcGraph::RIGHT )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawText' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawText' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 102., 22., 138., 50. ), 1. ),
                 $this->equalTo( '400' ),

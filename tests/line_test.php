@@ -26,6 +26,7 @@
  */
 
 require_once dirname( __FILE__ ) . '/test_case.php';
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
 
 /**
  * Tests for ezcGraph class.
@@ -331,9 +332,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             'drawDataLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawDataLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
@@ -346,9 +345,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
                 $this->equalTo( null )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawDataLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 2' ) ),
@@ -361,9 +358,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
                 $this->equalTo( null )
             );
-        $mockedRenderer
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 2, 'drawDataLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 3' ) ),
@@ -376,9 +371,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
                 $this->equalTo( null )
             );
-        $mockedRenderer
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 3, 'drawDataLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 4' ) ),
@@ -391,9 +384,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
                 $this->equalTo( null )
             );
-        $mockedRenderer
-           ->expects( $this->at( 4 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawDataLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
@@ -428,9 +419,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             'drawDataLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawBar' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawBar' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
@@ -440,9 +429,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 )
             );
-        $mockedRenderer
-           ->expects( $this->at( 4 ) )
-            ->method( 'drawBar' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawBar' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
@@ -452,9 +439,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 5 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 5, 'drawDataLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData2', 'sample 1' ) ),
@@ -467,9 +452,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
                 $this->equalTo( null )
             );
-        $mockedRenderer
-           ->expects( $this->at( 9 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 9, 'drawDataLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData2', 'sample 5' ) ),
@@ -500,9 +483,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             'drawBar',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawBar' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawBar' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
@@ -512,9 +493,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawBar' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawBar' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 2' ) ),
@@ -524,9 +503,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawBar' )
+        $this->expectsCallAt( $mockedRenderer, 2, 'drawBar' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 3' ) ),
@@ -536,9 +513,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawBar' )
+        $this->expectsCallAt( $mockedRenderer, 3, 'drawBar' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 4' ) ),
@@ -548,9 +523,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 )
             );
-        $mockedRenderer
-           ->expects( $this->at( 4 ) )
-            ->method( 'drawBar' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawBar' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
@@ -581,9 +554,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             'drawStackedBar',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawStackedBar' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawStackedBar' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
@@ -591,9 +562,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( new ezcGraphCoordinate( .1, .5 ), .05 ),
                 $this->equalTo( new ezcGraphCoordinate( .1, .266 ), .05 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawStackedBar' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawStackedBar' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
@@ -601,9 +570,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( new ezcGraphCoordinate( .9, .5 ), .05 ),
                 $this->equalTo( new ezcGraphCoordinate( .9, .516 ), .05 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 5 ) )
-            ->method( 'drawStackedBar' )
+        $this->expectsCallAt( $mockedRenderer, 5, 'drawStackedBar' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 1' ) ),
@@ -611,9 +578,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( new ezcGraphCoordinate( .1, .266 ), .05 ),
                 $this->equalTo( new ezcGraphCoordinate( .1, .032 ), .05 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 6 ) )
-            ->method( 'drawStackedBar' )
+        $this->expectsCallAt( $mockedRenderer, 6, 'drawStackedBar' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 2' ) ),
@@ -621,9 +586,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( new ezcGraphCoordinate( .3, .5 ), .05 ),
                 $this->equalTo( new ezcGraphCoordinate( .3, .521 ), .05 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 7 ) )
-            ->method( 'drawStackedBar' )
+        $this->expectsCallAt( $mockedRenderer, 7, 'drawStackedBar' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 3' ) ),
@@ -631,9 +594,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( new ezcGraphCoordinate( .5, .5 ), .05 ),
                 $this->equalTo( new ezcGraphCoordinate( .5, .176 ), .05 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 8 ) )
-            ->method( 'drawStackedBar' )
+        $this->expectsCallAt( $mockedRenderer, 8, 'drawStackedBar' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 4' ) ),
@@ -641,9 +602,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( new ezcGraphCoordinate( .7, .38 ), .05 ),
                 $this->equalTo( new ezcGraphCoordinate( .7, .16 ), .05 )
             );
-        $mockedRenderer
-            ->expects( $this->at( 9 ) )
-            ->method( 'drawStackedBar' )
+        $this->expectsCallAt( $mockedRenderer, 9, 'drawStackedBar' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 5' ) ),
@@ -663,9 +622,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             'drawDataLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
@@ -678,9 +635,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#3465A4' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#3465A464' ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 2' ) ),
@@ -693,9 +648,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#3465A4' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#3465A464' ) )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
@@ -753,9 +706,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             'drawDataLine',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
@@ -768,9 +719,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#729FCF' ) ),
                 $this->equalTo( null )
             );
-        $mockedRenderer
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 2, 'drawDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 3' ) ),
@@ -783,9 +732,7 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#729FCF' ) ),
                 $this->equalTo( null )
             );
-        $mockedRenderer
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawDataLine' )
+        $this->expectsCallAt( $mockedRenderer, 4, 'drawDataLine' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),

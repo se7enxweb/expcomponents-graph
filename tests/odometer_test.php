@@ -26,6 +26,7 @@
  */
 
 require_once dirname( __FILE__ ) . '/test_case.php';
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
 
 /**
  * Tests for ezcGraph class.
@@ -275,9 +276,7 @@ class ezcGraphOdometerChartTest extends ezcGraphTestCase
             'drawOdometer',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawOdometer' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawOdometer' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 0., 0., 500., 200. ), 1. ),
                 $this->equalTo( $chart->axis ),
@@ -301,9 +300,7 @@ class ezcGraphOdometerChartTest extends ezcGraphTestCase
             'drawOdometerMarker',
         ) );
 
-        $mockedRenderer
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawOdometerMarker' )
+        $this->expectsCallAt( $mockedRenderer, 0, 'drawOdometerMarker' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 25., 50., 475., 150. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( .585, .0 ), .001 ),
@@ -312,9 +309,7 @@ class ezcGraphOdometerChartTest extends ezcGraphTestCase
                 $this->equalTo( 2 )
             );
 
-        $mockedRenderer
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawOdometerMarker' )
+        $this->expectsCallAt( $mockedRenderer, 1, 'drawOdometerMarker' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 25., 50., 475., 150. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( .0525, .0 ), .001 ),
@@ -323,9 +318,7 @@ class ezcGraphOdometerChartTest extends ezcGraphTestCase
                 $this->equalTo( 2 )
             );
 
-        $mockedRenderer
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawOdometerMarker' )
+        $this->expectsCallAt( $mockedRenderer, 2, 'drawOdometerMarker' )
             ->with(
                 $this->equalTo( new ezcGraphBoundings( 25., 50., 475., 150. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( .81, .0 ), .001 ),

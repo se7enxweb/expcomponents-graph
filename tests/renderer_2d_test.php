@@ -26,6 +26,7 @@
  */
 
 require_once dirname( __FILE__ ) . '/test_case.php';
+require_once dirname( __FILE__ ) . '/invocation_at_index.php';
 
 /**
  * Tests for ezcGraph class.
@@ -93,9 +94,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 // /*
     public function testRenderLabeledPieSegment()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawCircleSector' )
+        $this->expectsCallAt( $this->driver, 0, 'drawCircleSector' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 200, 100 ), 1. ),
                 $this->equalTo( 180, 1. ),
@@ -105,9 +104,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawCircleSector' )
+        $this->expectsCallAt( $this->driver, 1, 'drawCircleSector' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 200, 100 ), 1. ),
                 $this->equalTo( 180, 1. ),
@@ -118,9 +115,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( false )
             );
 
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 2, 'drawLine' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphCoordinate( 205., 166. ), 1. ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 250., 190. ), 1. ),
@@ -128,9 +123,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( 1 )
             );
 
-        $this->driver
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawCircle' )
+        $this->expectsCallAt( $this->driver, 3, 'drawCircle' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphCoordinate( 205., 166. ), 1. ),
                 $this->equalTo( 6 ),
@@ -138,9 +131,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#000000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawCircle' )
+        $this->expectsCallAt( $this->driver, 4, 'drawCircle' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphCoordinate( 250., 190. ), 1. ),
                 $this->equalTo( 6 ),
@@ -149,9 +140,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( true )
             );
 
-        $this->driver
-            ->expects( $this->at( 5 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 5, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Testlabel' ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 256., 180. ), 1. ),
@@ -177,9 +166,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderNonLabeledPieSegment()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawCircleSector' )
+        $this->expectsCallAt( $this->driver, 0, 'drawCircleSector' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
                 $this->equalTo( 180., 1. ),
@@ -189,9 +176,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawCircleSector' )
+        $this->expectsCallAt( $this->driver, 1, 'drawCircleSector' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
                 $this->equalTo( 180., 1. ),
@@ -218,9 +203,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderNonLabeledPieSegmentMoveOut()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawCircleSector' )
+        $this->expectsCallAt( $this->driver, 0, 'drawCircleSector' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphCoordinate( 201., 109. ), 1. ),
                 $this->equalToWithDelta( 180., 1. ),
@@ -230,9 +213,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawCircleSector' )
+        $this->expectsCallAt( $this->driver, 1, 'drawCircleSector' )
             ->with(
                 $this->equalToWithDelta( new ezcGraphCoordinate( 201., 109. ), 1. ),
                 $this->equalToWithDelta( 180., 1. ),
@@ -259,9 +240,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderLotsOfLabeledPieSegments()
     {
-        $this->driver
-            ->expects( $this->at( 13 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 13, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Label 5' ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 0, 180. ), 1. ),
@@ -269,9 +248,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalToWithDelta( 20., 1. ),
                 $this->equalTo( 40 )
             );
-        $this->driver
-            ->expects( $this->at( 17 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 17, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Label 1' ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 307., 120. ), 1. ),
@@ -279,9 +256,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalToWithDelta( 20., 1. ),
                 $this->equalTo( 36 )
             );
-        $this->driver
-            ->expects( $this->at( 21 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 21, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Label 2' ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 298.5, 140. ), 1. ),
@@ -289,9 +264,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalToWithDelta( 20., 1. ),
                 $this->equalTo( 36 )
             );
-        $this->driver
-            ->expects( $this->at( 25 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 25, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Label 3' ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 283.5, 160. ), 1. ),
@@ -299,9 +272,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalToWithDelta( 20., 1. ),
                 $this->equalTo( 36 )
             );
-        $this->driver
-            ->expects( $this->at( 29 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 29, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Label 4' ),
                 $this->equalToWithDelta( new ezcGraphCoordinate( 255.5, 180. ), 1. ),
@@ -322,9 +293,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBar()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 157.5, 0. ),
@@ -335,9 +304,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 157.5, 0. ),
@@ -363,9 +330,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderSecondBar()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 157.5, 0. ),
@@ -391,9 +356,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderStackedBar()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 155, 40. ),
@@ -404,9 +367,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 155, 40. ),
@@ -431,9 +392,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderDataLine()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 40., 40. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 280., 60. ), 1. ),
@@ -452,9 +411,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderFilledDataLine()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 40., 40. ),
@@ -465,9 +422,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000DD' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 1, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 40., 40. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 280., 60. ), 1. ),
@@ -492,9 +447,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderFilledDataLineWithIntersection()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 40., 100. ),
@@ -504,9 +457,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000DD' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 280., 100. ),
@@ -516,9 +467,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000DD' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 2, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 40., 40. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 280., 140. ), 1. ),
@@ -543,9 +492,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderRadarDataLine()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 200., 50. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 300., 100. ), 1. ),
@@ -565,9 +512,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderFilledRadarDataLine()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 200., 50. ),
@@ -577,9 +522,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000DD' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 1, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 200., 50. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 300., 100. ), 1. ),
@@ -604,9 +547,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderFilledRadarDataLineWithSymbol()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 200., 50. ),
@@ -616,18 +557,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000DD' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 1, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 200., 50. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 300., 100. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 2, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 300., 97. ),
@@ -787,9 +724,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderFilledDataLineWithSymbolSameColor()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 40., 100. ),
@@ -799,9 +734,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000DD' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 280., 100. ),
@@ -811,18 +744,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000DD' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 2, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 40., 40. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 280., 140. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawCircle' )
+        $this->expectsCallAt( $this->driver, 3, 'drawCircle' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 280, 140 ) ),
                 $this->equalTo( 6 ),
@@ -849,9 +778,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderFilledDataLineWithSymbolInDifferentColorAndCustomSize()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 40., 100. ),
@@ -861,9 +788,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000DD' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 280., 100. ),
@@ -873,18 +798,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000DD' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 2, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 40., 40. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 280., 140. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawCircle' )
+        $this->expectsCallAt( $this->driver, 3, 'drawCircle' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 280, 140 ) ),
                 $this->equalTo( 10 ),
@@ -913,9 +834,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBox()
     {
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 1., 1. ),
@@ -926,9 +845,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( false )
             );
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 2., 2. ),
@@ -959,9 +876,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBoxDifferentPadding()
     {
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 3., 3. ),
@@ -972,9 +887,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( false )
             );
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 3., 3. ),
@@ -1005,9 +918,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBoxWithoutBorder()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 1., 1. ),
@@ -1038,9 +949,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBoxWithoutBackground()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 1., 1. ),
@@ -1071,9 +980,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBoxWithTitle()
     {
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 1., 1. ),
@@ -1084,9 +991,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( false )
             );
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 2., 2. ),
@@ -1097,9 +1002,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#BB0000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 2, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Boxtitle' ),
                 $this->equalTo( new ezcGraphCoordinate( 3., 3. ), 1. ),
@@ -1129,9 +1032,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBoxWithBottomTitleAndLeftAlignement()
     {
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 1., 1. ),
@@ -1142,9 +1043,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( false )
             );
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 2., 2. ),
@@ -1155,9 +1054,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#BB0000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 2, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Boxtitle' ),
                 $this->equalTo( new ezcGraphCoordinate( 3., 177. ), 1. ),
@@ -1190,9 +1087,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderText()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 0, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'A common test string is "foobar"' ),
                 $this->equalTo( new ezcGraphCoordinate( 0., 0. ), 1. ),
@@ -1210,9 +1105,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBackgroundImage()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 125., 43.5 ), 1. ),
@@ -1228,9 +1121,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderTopLeftBackgroundImage()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 0., 0. ), 1. ),
@@ -1247,9 +1138,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBottomRightBackgroundImage()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 250., 87. ), 1. ),
@@ -1266,9 +1155,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderToBigBackgroundImage()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 0., 0. ), 1. ),
@@ -1285,27 +1172,21 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBackgroundImageRepeatX()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 0., 87. ), 1. ),
                 $this->equalTo( 150., 1. ),
                 $this->equalTo( 113., 1. )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 1, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 150., 87. ), 1. ),
                 $this->equalTo( 150., 1. ),
                 $this->equalTo( 113., 1. )
             );
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 2, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 300., 87. ), 1. ),
@@ -1323,18 +1204,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBackgroundImageRepeatY()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 250., 0. ), 1. ),
                 $this->equalTo( 150., 1. ),
                 $this->equalTo( 113., 1. )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 1, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 250., 113. ), 1. ),
@@ -1352,27 +1229,21 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
     public function testRenderBackgroundImageRepeatBoth()
     {
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 0., 0. ), 1. ),
                 $this->equalTo( 150., 1. ),
                 $this->equalTo( 113., 1. )
             );
-        $this->driver
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 3, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 150., 113. ), 1. ),
                 $this->equalTo( 150., 1. ),
                 $this->equalTo( 113., 1. )
             );
-        $this->driver
-            ->expects( $this->at( 5 ) )
-            ->method( 'drawImage' )
+        $this->expectsCallAt( $this->driver, 5, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
                 $this->equalTo( new ezcGraphCoordinate( 300., 113. ), 1. ),
@@ -1403,9 +1274,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
         $chart->legend->generateFromDataSets( $chart->data );
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 8., 1. ),
@@ -1416,9 +1285,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#0000FF' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 2, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 1., 19. ),
@@ -1429,9 +1296,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 4, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 1., 37. ),
@@ -1464,9 +1329,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
         $chart->legend->generateFromDataSets( $chart->data );
 
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 1, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'sampleData' ),
                 $this->equalTo( new ezcGraphCoordinate( 16., 1. ), 1. ),
@@ -1474,9 +1337,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( 14., 1. ),
                 $this->equalTo( 36 )
             );
-        $this->driver
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 3, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'moreData' ),
                 $this->equalTo( new ezcGraphCoordinate( 16., 19. ), 1. ),
@@ -1484,9 +1345,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( 14., 1. ),
                 $this->equalTo( 36 )
             );
-        $this->driver
-            ->expects( $this->at( 5 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 5, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Even more data' ),
                 $this->equalTo( new ezcGraphCoordinate( 16., 37. ), 1. ),
@@ -1516,9 +1375,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
         $chart->legend->generateFromDataSets( $chart->data );
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 0, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 8., 1. ),
@@ -1529,9 +1386,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#0000FF' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 2 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 2, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 101., 1. ),
@@ -1542,9 +1397,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( ezcGraphColor::fromHex( '#FF0000' ) ),
                 $this->equalTo( true )
             );
-        $this->driver
-            ->expects( $this->at( 4 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 4, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 201., 1. ),
@@ -1578,9 +1431,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
 
         $chart->legend->generateFromDataSets( $chart->data );
 
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 1, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'sampleData' ),
                 $this->equalTo( new ezcGraphCoordinate( 16., 1. ), 1. ),
@@ -1588,9 +1439,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( 14., 1. ),
                 $this->equalTo( 36 )
             );
-        $this->driver
-            ->expects( $this->at( 3 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 3, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'moreData' ),
                 $this->equalTo( new ezcGraphCoordinate( 116., 1. ), 1. ),
@@ -1598,9 +1447,7 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
                 $this->equalTo( 14., 1. ),
                 $this->equalTo( 36 )
             );
-        $this->driver
-            ->expects( $this->at( 5 ) )
-            ->method( 'drawTextBox' )
+        $this->expectsCallAt( $this->driver, 5, 'drawTextBox' )
             ->with(
                 $this->equalTo( 'Even more data' ),
                 $this->equalTo( new ezcGraphCoordinate( 216., 1. ), 1. ),
@@ -1622,18 +1469,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
         $chart->yAxis->addData( array( 1, 2, 3, 4, 5 ) );
         $chart->yAxis->calculateAxisBoundings();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 140., 220. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 140., 20. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 140., 20. ),
@@ -1660,18 +1503,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
         $chart->yAxis->addData( array( 1, 2, 3, 4, 5 ) );
         $chart->yAxis->calculateAxisBoundings();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 140., 200. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 140., 40. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalToWithDelta( array(
                     new ezcGraphCoordinate( 140., 40. ),
@@ -1699,18 +1538,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
         $chart->yAxis->addData( array( 1, 2, 3, 4, 5 ) );
         $chart->yAxis->calculateAxisBoundings();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 140., 20. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 140., 220. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 140., 220. ),
@@ -1737,18 +1572,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
         $chart->yAxis->addData( array( 1, 2, 3, 4, 5 ) );
         $chart->yAxis->calculateAxisBoundings();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 150., 120. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 450., 120. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 450., 120. ),
@@ -1775,18 +1606,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
         $chart->xAxis->addData( array( 1, 2, 3, 4, 5 ) );
         $chart->xAxis->calculateAxisBoundings();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 140., 120. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 460., 120. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 460., 120. ),
@@ -1814,18 +1641,14 @@ class ezcGraphRenderer2dTest extends ezcGraphTestCase
         $chart->yAxis->addData( array( 1, 2, 3, 4, 5 ) );
         $chart->yAxis->calculateAxisBoundings();
 
-        $this->driver
-            ->expects( $this->at( 0 ) )
-            ->method( 'drawLine' )
+        $this->expectsCallAt( $this->driver, 0, 'drawLine' )
             ->with(
                 $this->equalTo( new ezcGraphCoordinate( 450., 120. ), 1. ),
                 $this->equalTo( new ezcGraphCoordinate( 150., 120. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#2E3436' ) ),
                 $this->equalTo( 1 )
             );
-        $this->driver
-            ->expects( $this->at( 1 ) )
-            ->method( 'drawPolygon' )
+        $this->expectsCallAt( $this->driver, 1, 'drawPolygon' )
             ->with(
                 $this->equalTo( array(
                     new ezcGraphCoordinate( 150., 120. ),
