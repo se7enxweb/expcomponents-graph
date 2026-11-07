@@ -278,7 +278,7 @@ class ezcGraphOdometerChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawOdometer' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 0., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 0., 0., 500., 200. ), 1. ),
                 $this->equalTo( $chart->axis ),
                 $this->equalTo( $chart->options )
             )
@@ -302,8 +302,8 @@ class ezcGraphOdometerChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawOdometerMarker' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 25., 50., 475., 150. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( .585, .0 ), .001 ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 25., 50., 475., 150. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .585, .0 ), .001 ),
                 $this->equalTo( ezcGraph::NO_SYMBOL ),
                 $this->equalTo( ezcGraphColor::create( '#3465A4' ) ),
                 $this->equalTo( 2 )
@@ -311,8 +311,8 @@ class ezcGraphOdometerChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 1, 'drawOdometerMarker' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 25., 50., 475., 150. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( .0525, .0 ), .001 ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 25., 50., 475., 150. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0525, .0 ), .001 ),
                 $this->equalTo( ezcGraph::NO_SYMBOL ),
                 $this->equalTo( ezcGraphColor::create( '#4E9A06' ) ),
                 $this->equalTo( 2 )
@@ -320,8 +320,8 @@ class ezcGraphOdometerChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 2, 'drawOdometerMarker' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 25., 50., 475., 150. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( .81, .0 ), .001 ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 25., 50., 475., 150. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .81, .0 ), .001 ),
                 $this->equalTo( ezcGraph::NO_SYMBOL ),
                 $this->equalTo( ezcGraphColor::create( '#CC0000' ) ),
                 $this->equalTo( 2 )

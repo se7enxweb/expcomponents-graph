@@ -115,11 +115,11 @@ class ezcGraphPolynomTest extends ezcTestCase
     {
         $polynom = new ezcGraphPolynom( array( 2 => 1 ) );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             4.,
             $polynom->evaluate( 2 ),
-            'Calculated wrong value',
-            .1
+            .1,
+            'Calculated wrong value'
         );
     }
 
@@ -127,11 +127,11 @@ class ezcGraphPolynomTest extends ezcTestCase
     {
         $polynom = new ezcGraphPolynom( array( 2 => 1 ) );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             4.,
             $polynom->evaluate( -2 ),
-            'Calculated wrong value',
-            .1
+            .1,
+            'Calculated wrong value'
         );
     }
 
@@ -139,11 +139,11 @@ class ezcGraphPolynomTest extends ezcTestCase
     {
         $polynom = new ezcGraphPolynom( array( 2 => .5, 1 => 3, 0 => -4.5 ) );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             9.,
             $polynom->evaluate( 3 ),
-            'Calculated wrong value',
-            .1
+            .1,
+            'Calculated wrong value'
         );
     }
 

@@ -556,59 +556,59 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawStackedBar' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .1, .5 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .1, .266 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( .1, .5 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .1, .266 ), .05 )
             );
         $this->expectsCallAt( $mockedRenderer, 4, 'drawStackedBar' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .9, .5 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .9, .516 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( .9, .5 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .9, .516 ), .05 )
             );
         $this->expectsCallAt( $mockedRenderer, 5, 'drawStackedBar' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 1' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#0000CC' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .1, .266 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .1, .032 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( .1, .266 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .1, .032 ), .05 )
             );
         $this->expectsCallAt( $mockedRenderer, 6, 'drawStackedBar' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 2' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#0000CC' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .3, .5 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .3, .521 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( .3, .5 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .3, .521 ), .05 )
             );
         $this->expectsCallAt( $mockedRenderer, 7, 'drawStackedBar' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 3' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#0000CC' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .5, .5 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .5, .176 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( .5, .5 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .5, .176 ), .05 )
             );
         $this->expectsCallAt( $mockedRenderer, 8, 'drawStackedBar' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 4' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#0000CC' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .7, .38 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .7, .16 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( .7, .38 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .7, .16 ), .05 )
             );
         $this->expectsCallAt( $mockedRenderer, 9, 'drawStackedBar' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'moreData', 'sample 5' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#0000CC' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .9, .516 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .9, .55 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( .9, .516 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .9, .55 ), .05 )
             );
 
         $chart->renderer = $mockedRenderer;
@@ -624,11 +624,11 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#3465A4' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .165 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .165 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .165 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .165 ), .05 ),
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 ),
                 $this->equalTo( ezcGraph::NO_SYMBOL ),
@@ -637,11 +637,11 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             );
         $this->expectsCallAt( $mockedRenderer, 1, 'drawDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 2' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#3465A4' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .165 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .25, .6975 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .165 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .25, .6975 ), .05 ),
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 ),
                 $this->equalTo( ezcGraph::NO_SYMBOL ),
@@ -650,11 +650,11 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             );
         $this->expectsCallAt( $mockedRenderer, 4, 'drawDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#3465A4' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .75, .45 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( 1., .5 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .75, .45 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 1., .5 ), .05 ),
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 ),
                 $this->equalTo( ezcGraph::NO_SYMBOL ),
@@ -708,11 +708,11 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#729FCF' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .415 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .415 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .415 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .415 ), .05 ),
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 ),
                 $this->equalTo( ezcGraph::DIAMOND ),
@@ -721,11 +721,11 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             );
         $this->expectsCallAt( $mockedRenderer, 2, 'drawDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 3' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#729FCF' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .25, .9475 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .5, .19 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .25, .9475 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .5, .19 ), .05 ),
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 ),
                 $this->equalTo( ezcGraph::CIRCLE ),
@@ -734,11 +734,11 @@ class ezcGraphLineChartTest extends ezcGraphTestCase
             );
         $this->expectsCallAt( $mockedRenderer, 4, 'drawDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 140., 20., 460., 180. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#729FCF' ) ),
-                $this->equalTo( new ezcGraphCoordinate( .75, .7 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( 1., .9975 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .75, .7 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 1., .9975 ), .05 ),
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 ),
                 $this->equalTo( ezcGraph::DIAMOND ),

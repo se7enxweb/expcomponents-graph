@@ -77,21 +77,21 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawAxis' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 0. ), 1. )
+                $this->equalToWithDelta( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 100. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 0. ), 1. )
             );
         $this->expectsCallAt( $mockedRenderer, 1, 'drawAxis' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 400., 100. ), 1. )
+                $this->equalToWithDelta( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 100. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 400., 100. ), 1. )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawAxis' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 0., 100. ), 1. )
+                $this->equalToWithDelta( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 100. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 0., 100. ), 1. )
             );
 
         $chart->renderer = $mockedRenderer;
@@ -111,30 +111,30 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawRadarDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .585 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .585 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 100. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .585 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .585 ), .05 )
             );
         $this->expectsCallAt( $mockedRenderer, 1, 'drawRadarDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 2' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .585 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .25, .0525 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 100. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .585 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .25, .0525 ), .05 )
             );
         $this->expectsCallAt( $mockedRenderer, 4, 'drawRadarDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( .75, .3 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( 1., .0025 ), .05 )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 100. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .75, .3 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 1., .0025 ), .05 )
             );
 
         $chart->renderer = $mockedRenderer;
@@ -155,12 +155,12 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawRadarDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 1' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .585 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .585 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 100. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .585 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .585 ), .05 ),
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 ),
                 $this->equalTo( ezcGraph::DIAMOND ),
@@ -168,12 +168,12 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
             );
         $this->expectsCallAt( $mockedRenderer, 1, 'drawRadarDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 2' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( .0, .585 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( .25, .0525 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 100. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .0, .585 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .25, .0525 ), .05 ),
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 ),
                 $this->equalTo( ezcGraph::DIAMOND ),
@@ -181,12 +181,12 @@ class ezcGraphRadarChartTest extends ezcGraphTestCase
             );
         $this->expectsCallAt( $mockedRenderer, 4, 'drawRadarDataLine' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 100., 0., 500., 200. ), 1. ),
                 $this->equalTo( new ezcGraphContext( 'sampleData', 'sample 5' ) ),
                 $this->equalTo( ezcGraphColor::fromHex( '#CC0000' ) ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 100. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( .75, .3 ), .05 ),
-                $this->equalTo( new ezcGraphCoordinate( 1., .0025 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 100. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( .75, .3 ), .05 ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 1., .0025 ), .05 ),
                 $this->equalTo( 0 ),
                 $this->equalTo( 1 ),
                 $this->equalTo( ezcGraph::DIAMOND ),

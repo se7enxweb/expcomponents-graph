@@ -297,32 +297,32 @@ class ezcGraphDataSetAverageTest extends ezcGraphTestCase
         $averageDataSet = new ezcGraphDataSetAveragePolynom( $arrayDataSet );
         $averageDataSet->polynomOrder = 3;
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             2.,
             $averageDataSet[-1],
-            'Polynom should evaluate to 2.',
-            .01
+            .01,
+            'Polynom should evaluate to 2.'
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             2.,
             $averageDataSet[1],
-            'Polynom should evaluate to 2.',
-            .01
+            .01,
+            'Polynom should evaluate to 2.'
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             5.,
             $averageDataSet[2],
-            'Polynom should evaluate to 5.',
-            .01
+            .01,
+            'Polynom should evaluate to 5.'
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             10.,
             $averageDataSet[3],
-            'Polynom should evaluate to 10.',
-            .01
+            .01,
+            'Polynom should evaluate to 10.'
         );
     }
 
@@ -355,7 +355,7 @@ class ezcGraphDataSetAverageTest extends ezcGraphTestCase
 
         foreach ( $averageDataSet as $key => $value )
         {
-            $this->assertEquals( (string) ( $start += $stepSize ), $key, 'Wrong step.', .01 );
+            $this->assertEqualsWithDelta( (string) ( $start += $stepSize ), $key, .01, 'Wrong step.' );
         }
     }
 

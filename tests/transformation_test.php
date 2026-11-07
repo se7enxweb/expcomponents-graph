@@ -43,11 +43,11 @@ class ezcGraphTransformationTest extends ezcTestCase
         $transformation = new ezcGraphTransformation();
         $matrix = new ezcGraphMatrix( 3, 3 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $this->readAttribute( $matrix, 'matrix' ),
             $this->readAttribute( $transformation, 'matrix' ),
-            'Transformation matrices are not aequivalent',
-            .0001
+            .0001,
+            'Transformation matrices are not aequivalent'
         );
     }
 
@@ -69,11 +69,11 @@ class ezcGraphTransformationTest extends ezcTestCase
             )
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $this->readAttribute( $matrix, 'matrix' ),
             $this->readAttribute( $transformation, 'matrix' ),
-            'Transformation matrices are not aequivalent',
-            .0001
+            .0001,
+            'Transformation matrices are not aequivalent'
         );
     }
 
@@ -89,11 +89,11 @@ class ezcGraphTransformationTest extends ezcTestCase
             )
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $this->readAttribute( $matrix, 'matrix' ),
             $this->readAttribute( $transformation, 'matrix' ),
-            'Transformation matrices are not aequivalent',
-            .0001
+            .0001,
+            'Transformation matrices are not aequivalent'
         );
     }
 
@@ -124,11 +124,11 @@ class ezcGraphTransformationTest extends ezcTestCase
         $testCoordinate = new ezcGraphCoordinate( 0, 0 );
         $testCoordinate = $transformation->transformCoordinate( $testCoordinate );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             new ezcGraphCoordinate( 5, 5 ),
             $testCoordinate,
-            'Transformation of coordinate has wrong result.',
-            .0001
+            .0001,
+            'Transformation of coordinate has wrong result.'
         );
     }
 
@@ -144,11 +144,11 @@ class ezcGraphTransformationTest extends ezcTestCase
             )
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $this->readAttribute( $matrix, 'matrix' ),
             $this->readAttribute( $transformation, 'matrix' ),
-            'Transformation matrices are not aequivalent',
-            .0001
+            .0001,
+            'Transformation matrices are not aequivalent'
         );
     }
 
@@ -187,11 +187,11 @@ class ezcGraphTransformationTest extends ezcTestCase
         $testCoordinate = new ezcGraphCoordinate( 0, 0 );
         $testCoordinate = $transformation->transformCoordinate( $testCoordinate );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             new ezcGraphCoordinate( 20, 0 ),
             $testCoordinate,
-            'Transformation matrices are not aequivalent',
-            .0001
+            .0001,
+            'Transformation matrices are not aequivalent'
         );
     }
 }

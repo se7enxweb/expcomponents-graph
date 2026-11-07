@@ -82,9 +82,9 @@ class ezcGraphRenderer3dTest extends ezcGraphTestCase
         $this->expectsCallAt( $driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 125., 43.5 ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 125., 43.5 ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
 
         $renderer = new ezcGraphRenderer3d();
@@ -109,9 +109,9 @@ class ezcGraphRenderer3dTest extends ezcGraphTestCase
         $this->expectsCallAt( $driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 0., 0. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 0., 0. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
 
         $renderer = new ezcGraphRenderer3d();
@@ -137,9 +137,9 @@ class ezcGraphRenderer3dTest extends ezcGraphTestCase
         $this->expectsCallAt( $driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 250., 87. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 250., 87. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
 
         $renderer = new ezcGraphRenderer3d();
@@ -165,9 +165,9 @@ class ezcGraphRenderer3dTest extends ezcGraphTestCase
         $this->expectsCallAt( $driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 0., 0. ), 1. ),
-                $this->equalTo( 100., 1. ),
-                $this->equalTo( 100., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 0., 0. ), 1. ),
+                $this->equalToWithDelta( 100., 1. ),
+                $this->equalToWithDelta( 100., 1. )
             );
 
         $renderer = new ezcGraphRenderer3d();
@@ -193,23 +193,23 @@ class ezcGraphRenderer3dTest extends ezcGraphTestCase
         $this->expectsCallAt( $driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 0., 87. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 0., 87. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
         $this->expectsCallAt( $driver, 1, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 150., 87. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 150., 87. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
         $this->expectsCallAt( $driver, 2, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 300., 87. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 300., 87. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
 
         $renderer = new ezcGraphRenderer3d();
@@ -236,16 +236,16 @@ class ezcGraphRenderer3dTest extends ezcGraphTestCase
         $this->expectsCallAt( $driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 250., 0. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 250., 0. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
         $this->expectsCallAt( $driver, 1, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 250., 113. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 250., 113. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
 
         $renderer = new ezcGraphRenderer3d();
@@ -272,23 +272,23 @@ class ezcGraphRenderer3dTest extends ezcGraphTestCase
         $this->expectsCallAt( $driver, 0, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 0., 0. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 0., 0. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
         $this->expectsCallAt( $driver, 3, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 150., 113. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 150., 113. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
         $this->expectsCallAt( $driver, 5, 'drawImage' )
             ->with(
                 $this->equalTo( dirname( __FILE__ ) . '/data/jpeg.jpg' ),
-                $this->equalTo( new ezcGraphCoordinate( 300., 113. ), 1. ),
-                $this->equalTo( 150., 1. ),
-                $this->equalTo( 113., 1. )
+                $this->equalToWithDelta( new ezcGraphCoordinate( 300., 113. ), 1. ),
+                $this->equalToWithDelta( 150., 1. ),
+                $this->equalToWithDelta( 113., 1. )
             );
 
         $renderer = new ezcGraphRenderer3d();

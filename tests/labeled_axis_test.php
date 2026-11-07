@@ -169,7 +169,7 @@ class ezcGraphLabeledAxisTest extends ezcGraphTestCase
             'Wrong initial axis position. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .0,
             $chart->xAxis->getCoordinate( '2000' ),
             .05,

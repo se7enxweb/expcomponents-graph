@@ -212,8 +212,8 @@ class ezcGraphNumericDataSetTest extends ezcGraphTestCase
             $expectedKey = $start += $stepSize;
             $expectedValue = sin( $expectedKey );
 
-            $this->assertEquals( $expectedKey, $key, 'Wrong key value.', .01 );
-            $this->assertEquals( $expectedValue, $value, 'Wrong value.', .01 );
+            $this->assertEqualsWithDelta( $expectedKey, $key, .01, 'Wrong key value.' );
+            $this->assertEqualsWithDelta( $expectedValue, $value, .01, 'Wrong value.' );
         }
     }
 
@@ -236,8 +236,8 @@ class ezcGraphNumericDataSetTest extends ezcGraphTestCase
             $expectedKey = $start += $stepSize;
             $expectedValue = sin( deg2rad( $expectedKey ) ) * 10;
 
-            $this->assertEquals( $expectedKey, $key, 'Wrong key value.', .01 );
-            $this->assertEquals( $expectedValue, $value, 'Wrong value.', .01 );
+            $this->assertEqualsWithDelta( $expectedKey, $key, .01, 'Wrong key value.' );
+            $this->assertEqualsWithDelta( $expectedValue, $value, .01, 'Wrong value.' );
         }
     }
 

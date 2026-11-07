@@ -70,14 +70,14 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 220., 20. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 220., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220., 20. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 460., 20. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 20. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
 
@@ -101,14 +101,14 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 200., 20. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 200., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 20. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 200., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 500., 20. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 500., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 500., 20. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 500., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
 
@@ -132,14 +132,14 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 220., 0. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 220., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220., 0. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220., 200. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 460., 0. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 460., 200. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 0. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 200. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
 
@@ -162,14 +162,14 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawStepLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 220, 177. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 220, 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220, 177. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220, 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#EEEEEC' ) )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawStepLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 460., 177. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 177. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#EEEEEC' ) )
             );
 
@@ -193,14 +193,14 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawStepLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 220., 177. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 220., 183. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220., 177. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220., 183. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#EEEEEC' ) )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawStepLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 460., 177. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 460., 183. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 177. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 183. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#EEEEEC' ) )
             );
 
@@ -225,14 +225,14 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawStepLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 220., 180. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 220., 183. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 220., 183. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#EEEEEC' ) )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawStepLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 460., 180. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 460., 183. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 183. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#EEEEEC' ) )
             );
 
@@ -278,13 +278,13 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 182., 182., 258., 198. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 182., 182., 258., 198. ), 1. ),
                 $this->equalTo( 'sample 2' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::CENTER )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 422., 182., 498., 198. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 422., 182., 498., 198. ), 1. ),
                 $this->equalTo( 'sample 5' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::CENTER )
             );
@@ -309,19 +309,19 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 102., 182., 178., 198. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 102., 182., 178., 198. ), 1. ),
                 $this->equalTo( 'sample 1' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::CENTER )
             );
         $this->expectsCallAt( $mockedRenderer, 1, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 182., 182., 258., 198. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 182., 182., 258., 198. ), 1. ),
                 $this->equalTo( 'sample 2' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::CENTER )
             );
         $this->expectsCallAt( $mockedRenderer, 4, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 422., 182., 498., 198. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 422., 182., 498., 198. ), 1. ),
                 $this->equalTo( 'sample 5' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::CENTER )
             );
@@ -346,14 +346,14 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 380., 20. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 380., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 380., 20. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 380., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 140., 20. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 140., 180. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 140., 20. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 140., 180. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A85' ) )
             );
 
@@ -377,8 +377,8 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 140., 30. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 460., 30. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 140., 30. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 30. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A8588' ) )
             );
 
@@ -402,8 +402,8 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawGridLine' )
             ->with(
-                $this->equalTo( new ezcGraphCoordinate( 140., 170. ), 1. ),
-                $this->equalTo( new ezcGraphCoordinate( 460., 170. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 140., 170. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphCoordinate( 460., 170. ), 1. ),
                 $this->equalTo( ezcGraphColor::fromHex( '#888A8588' ) )
             );
 
@@ -427,13 +427,13 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 342., 182., 418., 198. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 342., 182., 418., 198. ), 1. ),
                 $this->equalTo( 'sample 2' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::CENTER )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 102., 182., 178., 198. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 102., 182., 178., 198. ), 1. ),
                 $this->equalTo( 'sample 5' ),
                 $this->equalTo( ezcGraph::TOP | ezcGraph::CENTER )
             );
@@ -458,13 +458,13 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 102., 42., 138., 78. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 102., 42., 138., 78. ), 1. ),
                 $this->equalTo( '100' ),
                 $this->equalTo( ezcGraph::MIDDLE | ezcGraph::RIGHT )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 102., 162., 138., 198. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 102., 162., 138., 198. ), 1. ),
                 $this->equalTo( '400' ),
                 $this->equalTo( ezcGraph::MIDDLE | ezcGraph::RIGHT )
             );
@@ -489,13 +489,13 @@ class ezcGraphAxisCenteredRendererTest extends ezcTestCase
 
         $this->expectsCallAt( $mockedRenderer, 0, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 102., 122., 138., 158. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 102., 122., 138., 158. ), 1. ),
                 $this->equalTo( '100' ),
                 $this->equalTo( ezcGraph::MIDDLE | ezcGraph::RIGHT )
             );
         $this->expectsCallAt( $mockedRenderer, 3, 'drawText' )
             ->with(
-                $this->equalTo( new ezcGraphBoundings( 102., 2., 138., 38. ), 1. ),
+                $this->equalToWithDelta( new ezcGraphBoundings( 102., 2., 138., 38. ), 1. ),
                 $this->equalTo( '400' ),
                 $this->equalTo( ezcGraph::MIDDLE | ezcGraph::RIGHT )
             );

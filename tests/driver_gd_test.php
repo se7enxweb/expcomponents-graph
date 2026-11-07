@@ -440,11 +440,11 @@ class ezcGraphGdDriverTest extends ezcGraphTestCase
             2000
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $return,
             array(),
-            'Expected empty point array as return value.',
-            1.
+            1.,
+            'Expected empty point array as return value.'
         );
     }
 
@@ -718,7 +718,7 @@ class ezcGraphGdDriverTest extends ezcGraphTestCase
             2000
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $return,
             array(
                 new ezcGraphCoordinate( 140., 50. ),
@@ -726,8 +726,8 @@ class ezcGraphGdDriverTest extends ezcGraphTestCase
                 new ezcGraphCoordinate( 60., 50. ),
                 new ezcGraphCoordinate( 100., 30. ),
             ),
-            'Expected point array as return value.',
-            1.
+            1.,
+            'Expected point array as return value.'
         );
     }
 
@@ -783,7 +783,7 @@ class ezcGraphGdDriverTest extends ezcGraphTestCase
             2000
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $return,
             array(
                 new ezcGraphCoordinate( 10., 10. ),
@@ -791,8 +791,8 @@ class ezcGraphGdDriverTest extends ezcGraphTestCase
                 new ezcGraphCoordinate( 110., 60. ),
                 new ezcGraphCoordinate( 10., 60. ),
             ),
-            'Expected point array as return value.',
-            1.
+            1.,
+            'Expected point array as return value.'
         );
     }
 
@@ -874,7 +874,7 @@ class ezcGraphGdDriverTest extends ezcGraphTestCase
             2000
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $return,
             array(
                 new ezcGraphCoordinate( 10., 10. ),
@@ -882,8 +882,8 @@ class ezcGraphGdDriverTest extends ezcGraphTestCase
                 new ezcGraphCoordinate( 160., 80. ),
                 new ezcGraphCoordinate( 10., 80. ),
             ),
-            'Expected point array as return value.',
-            1.
+            1.,
+            'Expected point array as return value.'
         );
     }
 

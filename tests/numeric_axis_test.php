@@ -59,26 +59,26 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $label = 0.;
         foreach ( $steps as $nr => $step )
         {
-            $this->assertEquals(
+            $this->assertEqualsWithDelta(
                 $step->position,
                 $position,
-                "[$nr] Step position wrong.",
-                .00001
+                .00001,
+                "[$nr] Step position wrong."
             );
             $position += .25;
 
-            $this->assertEquals(
+            $this->assertEqualsWithDelta(
                 $step->width,
                 .25,
-                "[$nr] Step width wrong.",
-                .00001
+                .00001,
+                "[$nr] Step width wrong."
             );
 
-            $this->assertEquals(
+            $this->assertEqualsWithDelta(
                 $step->label,
                 $label,
-                "[$nr] Step label wrong.",
-                .00001
+                .00001,
+                "[$nr] Step label wrong."
             );
             $label += 25;
 
@@ -130,32 +130,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->majorStep = 10;
         $chart->yAxis->minorStep = 1;
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             10.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             50.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             10.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -165,32 +165,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->data['sample'] = new ezcGraphArrayDataSet( array( 2000 => 20, 70, 12, 130 ) );
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             150.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             25.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             5.,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -200,32 +200,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->data['sample'] = new ezcGraphArrayDataSet( array( 2000 => 1, 4.3, .2, 3.82 ) );
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             5.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .25,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -235,32 +235,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->data['sample'] = new ezcGraphArrayDataSet( array( 2000 => -1.8, 4.3, .2, 3.82 ) );
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             -2.5,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             5.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             2.5,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .5,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -270,32 +270,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->data['sample'] = new ezcGraphArrayDataSet( array( 2000 => 1045, 1300, 1012, 1450 ) );
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1000.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1500.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             100.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             25.,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -306,32 +306,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->data['sample2'] = new ezcGraphArrayDataSet( array( 2000 => 1270, 1170, 1610, 1370 ) );
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1000.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1750.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             250.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             50.,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -342,32 +342,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->majorStep = 50;
         $chart->render( 500, 300 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1000.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1450.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             50.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             10.,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -378,32 +378,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->min = 0;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1500.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             500.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             100.,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -414,32 +414,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->max = 2000;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1000.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             2000.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             250.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             50.,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -451,32 +451,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->max = 2000;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             2000.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1000.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             250.,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -487,32 +487,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->majorStep = .5;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             4.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             5.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .5,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .1,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -523,32 +523,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->majorStep = .5;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             113.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             114.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .5,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .1,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -560,32 +560,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->min = -100;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             -100,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1900,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             500,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             100,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -597,32 +597,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->max = 1900;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             -100,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1900,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             500,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             100,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -648,32 +648,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->max = 13.53;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             13.53,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             2.706,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.5412,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -686,32 +686,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->majorStep = 250;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             2000.,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             250.,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             50.,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -724,32 +724,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->majorStep = 0.025;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.175,
             $chart->yAxis->min,
-            'As value for: min; ',
-            .001
+            .001,
+            'As value for: min; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.275,
             $chart->yAxis->max,
-            'As value for: max; ',
-            .001
+            .001,
+            'As value for: max; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.025,
             $chart->yAxis->majorStep,
-            'As value for: majorStep; ',
-            .001
+            .001,
+            'As value for: majorStep; '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .005,
             $chart->yAxis->minorStep,
-            'As value for: minorStep; ',
-            .001
+            .001,
+            'As value for: minorStep; '
         );
     }
 
@@ -795,32 +795,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->position = ezcGraph::LEFT;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->getCoordinate( false ),
-            'Wrong initial axis position. ',
-            .05
+            .05,
+            'Wrong initial axis position. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->getCoordinate( 1000 ),
-            'Wrong minimal value. ',
-            .05
+            .05,
+            'Wrong minimal value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .4,
             $chart->yAxis->getCoordinate( 1200 ),
-            'Wrong mid value. ',
-            .05
+            .05,
+            'Wrong mid value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.,
             $chart->yAxis->getCoordinate( 1500 ),
-            'Wrong maximum value. ',
-            .05
+            .05,
+            'Wrong maximum value. '
         );
     }
 
@@ -831,32 +831,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->position = ezcGraph::RIGHT;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.,
             $chart->yAxis->getCoordinate( false ),
-            'Wrong initial axis position. ',
-            .05
+            .05,
+            'Wrong initial axis position. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.,
             $chart->yAxis->getCoordinate( 1000 ),
-            'Wrong minimal value. ',
-            .05
+            .05,
+            'Wrong minimal value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .6,
             $chart->yAxis->getCoordinate( 1200 ),
-            'Wrong mid value. ',
-            .05
+            .05,
+            'Wrong mid value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->getCoordinate( 1500 ),
-            'Wrong maximum value. ',
-            .05
+            .05,
+            'Wrong maximum value. '
         );
     }
 
@@ -867,32 +867,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->position = ezcGraph::TOP;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->getCoordinate( false ),
-            'Wrong initial axis position. ',
-            .05
+            .05,
+            'Wrong initial axis position. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->getCoordinate( 1000 ),
-            'Wrong minimal value. ',
-            .05
+            .05,
+            'Wrong minimal value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.4,
             $chart->yAxis->getCoordinate( 1200 ),
-            'Wrong mid value. ',
-            .05
+            .05,
+            'Wrong mid value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.,
             $chart->yAxis->getCoordinate( 1500 ),
-            'Wrong maximum value. ',
-            .05
+            .05,
+            'Wrong maximum value. '
         );
     }
 
@@ -903,32 +903,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->position = ezcGraph::BOTTOM;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.,
             $chart->yAxis->getCoordinate( false ),
-            'Wrong initial axis position. ',
-            .05
+            .05,
+            'Wrong initial axis position. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.,
             $chart->yAxis->getCoordinate( 1000 ),
-            'Wrong minimal value. ',
-            .05
+            .05,
+            'Wrong minimal value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .6,
             $chart->yAxis->getCoordinate( 1200 ),
-            'Wrong mid value. ',
-            .05
+            .05,
+            'Wrong mid value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->getCoordinate( 1500 ),
-            'Wrong maximum value. ',
-            .05
+            .05,
+            'Wrong maximum value. '
         );
     }
 
@@ -940,32 +940,32 @@ class ezcGraphNumericAxisTest extends ezcTestCase
         $chart->yAxis->position = ezcGraph::LEFT;
         $chart->render( 500, 200 );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .25,
             $chart->yAxis->getCoordinate( false ),
-            'Wrong initial axis position. ',
-            .05
+            .05,
+            'Wrong initial axis position. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             0.,
             $chart->yAxis->getCoordinate( -500 ),
-            'Wrong minimal value. ',
-            .05
+            .05,
+            'Wrong minimal value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             .85,
             $chart->yAxis->getCoordinate( 1200 ),
-            'Wrong mid value. ',
-            .05
+            .05,
+            'Wrong mid value. '
         );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             1.,
             $chart->yAxis->getCoordinate( 1500 ),
-            'Wrong maximum value. ',
-            .05
+            .05,
+            'Wrong maximum value. '
         );
     }
 

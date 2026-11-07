@@ -205,11 +205,11 @@ class ezcGraphVectorTest extends ezcTestCase
         $vector = new ezcGraphVector( 1, 2 );
         $result = $vector->angle( new ezcGraphCoordinate( 3, 2 ) );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $result,
             0.51914611424652,
-            'Wrong angle returned',
-            .01
+            .01,
+            'Wrong angle returned'
         );
     }
 
@@ -218,11 +218,11 @@ class ezcGraphVectorTest extends ezcTestCase
         $vector = new ezcGraphVector( 1, 2 );
         $result = $vector->angle( new ezcGraphVector( 3, 2 ) );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $result,
             0.51914611424652,
-            'Wrong angle returned',
-            .01
+            .01,
+            'Wrong angle returned'
         );
     }
 
@@ -243,11 +243,11 @@ class ezcGraphVectorTest extends ezcTestCase
         $vector = new ezcGraphVector( 1, 0 );
         $result = $vector->angle( new ezcGraphVector( -1, 0 ) );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $result,
             M_PI,
-            'Wrong angle returned',
-            .01
+            .01,
+            'Wrong angle returned'
         );
     }
 
@@ -256,11 +256,11 @@ class ezcGraphVectorTest extends ezcTestCase
         $vector = new ezcGraphVector( 0, 1 );
         $result = $vector->angle( new ezcGraphVector( 0, -1 ) );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $result,
             M_PI,
-            'Wrong angle returned',
-            .01
+            .01,
+            'Wrong angle returned'
         );
     }
 
@@ -332,11 +332,11 @@ class ezcGraphVectorTest extends ezcTestCase
 
         $result = $vector->transform( new ezcGraphRotation( -90, new ezcGraphCoordinate( 15, 15 ) ) );
 
-        $this->assertEquals(
+        $this->assertEqualsWithDelta(
             $vector,
             new ezcGraphVector( 0, 30 ),
-            'Vector transformation does not have the expected result',
-            .0001
+            .0001,
+            'Vector transformation does not have the expected result'
         );
 
         $this->assertEquals(
